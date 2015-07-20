@@ -1,0 +1,19 @@
+citHeader("To cite", sQuote("multiDimBio"), "in publications, please use:")
+
+citEntry(entry = "unpublished",
+         title = "multiDimBio: An R Package for the Design, Analysis, and Visualization of Systems Biology Experiments",
+         author = personList(
+           as.person("Samuel V. Scarpino"), 
+           as.person("Ross Gillette"),
+           as.person("David Crews")
+           ),
+         note  = "R Package",
+         url   = "http://cran.r-project.org/web/packages/multiDimBio/index.html",
+	 textVersion = paste(
+		"Scarpino SV, R Gillette, D Crews. (2013) multiDimBio: An R Package for the Design, Analysis, and Visualization of Systems Biology Experiments (R package), http://cran.r-project.org/web/packages/multiDimBio/index.html")
+         )
+
+citFooter("For references to additional papers describing the use of",
+          sQuote("multiDimBio"),
+	  "see", sQuote("help(\"multiDimBio\")."))
+

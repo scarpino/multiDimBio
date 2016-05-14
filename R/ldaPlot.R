@@ -56,7 +56,7 @@ function(Data, Groups, palette='BrBG', axes=c(1,2,2,3,1,3)){
 		
 		p.j<-ggplot(pmdf.j, aes(x=LD1))
 		
-		psave.j<-p.j+geom_density(aes(fill=GC),xlab='Linear Discriminant 1 Score')+scale_fill_manual(values=c('#8C510A66','#01665E66'))+geom_point(aes(y=0,x=LD1,shape=GC),size=3.5)+geom_point(aes(y=0,x=LD1,colour=GC,shape=GC))+scale_colour_manual(values=c('#8C510A','#01665E'))+xlab('Linear Discriminant 1 Score')+ylab('Density')+theme(legend.position ='right', legend.background=element_rect(fill='#ffffffaa',colour='black'),panel.background=element_rect(fill='white',colour='black'),axis.text=element_text(colour='black',size=15),axis.title=element_text(colour='black',size=15), legend.key=element_rect(fill='white '),panel.grid.minor=element_blank(),panel.grid.major=element_blank())
+		psave.j<-p.j+geom_density(aes(fill=GC))+scale_fill_manual(values=c('#8C510A66','#01665E66'))+geom_point(aes(y=0,x=LD1,shape=GC),size=3.5)+geom_point(aes(y=0,x=LD1,colour=GC,shape=GC))+scale_colour_manual(values=c('#8C510A','#01665E'))+labs(x = "Linear Discriminant 1 Score", y = "Density")+theme(legend.position ='right', legend.background=element_rect(fill='#ffffffaa',colour='black'),panel.background=element_rect(fill='white',colour='black'),axis.text=element_text(colour='black',size=15),axis.title=element_text(colour='black',size=15), legend.key=element_rect(fill='white '),panel.grid.minor=element_blank(),panel.grid.major=element_blank())
 		
 		timestamp<-as.character(as.integer(Sys.time()))
 		ggsave(paste(timestamp,comp[j,1],comp[j,2],'Group LDA Plot.pdf',sep=' '), psave.j)

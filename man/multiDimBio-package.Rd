@@ -14,8 +14,8 @@ multiDimBio is a package designed to support a systems biology research program 
 \tabular{ll}{
 Package: \tab multiDimBio\cr
 Type: \tab Package\cr
-Version: \tab 0.3.3\cr
-Date: \tab 2013-03-05\cr
+Version: \tab 0.4.0\cr
+Date: \tab 2016-05-14\cr
 License: \tab GPL 3.0\cr
 LazyLoad: \tab yes\cr
 }

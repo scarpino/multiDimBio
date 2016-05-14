@@ -20,6 +20,5 @@ function(DATA,GROUPS,palette='Paired'){
 	
 	timestamp<-as.character(as.integer(Sys.time()))
 	ggsave(filename=paste(timestamp,'BoxWhisker.pdf',sep='_'), p.save)
-	dev.off()
 	}#end FUNCTION
 

@@ -1,3 +1,20 @@
+#' A function to plot the results of a binomPower run
+#' 
+#' A function to plot the results of a binomPower run.
+#' 
+#' 
+#' @param datPlotBig a (non-empty) matrix of data values, with columns trueTau,
+#' ndads, trueTau2
+#' @param params a (non-empty) matrix of parameter values, with columns mm and
+#' vv.
+#' @param timeStamp A timeStamp.
+#' @return Saves two plots of the binomPower analysis results a .pdf in the
+#' working directory.
+#' @examples
+#' 
+#' #not run
+#' 
+#' @export plotBinomPower
 plotBinomPower <- function(datPlotBig, params, timeStamp = Sys.time()) {
     
     if (length(unique(params$mm)) > 1) {

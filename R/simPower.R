@@ -1,3 +1,26 @@
+#' An internal function of binomPower, which actually calculates the p value
+#' 
+#' An internal function of binomPower, which actually calculates the p value.
+#' 
+#' 
+#' @param ndads a (non-empty) numeric value indicating the number of dads.
+#' @param mm a (non-empty) numeric value indicating the mean number of
+#' offspring per dad per bin (normal dist).
+#' @param vv a (non-empty) numeric value indicating the variance in offspring
+#' per dad per bin (normal dist).
+#' @param tau2 a (non-empty) numeric value indicating the dad effect
+#' (narrow-sense heritability ~ tau2/(tau2+(pi/sqrt(3))^2)).
+#' @param nperms a (non-empty) numeric value indicating the number of bootstrap
+#' permutations to use for caluclating a p value.
+#' @param nbins a (non-empty) numeric value indicating the number of bins, data
+#' are pooled before analysis.
+#' @return Returns a p value for a given set of conditions over a specificed
+#' number of bootstrap permutations.
+#' @examples
+#' 
+#' #not run
+#' 
+#' @export simPower
 simPower <- function(ndads, mm, vv, tau2, nperms, nbins) {
     mylogit = function(x) log(x/{
         1 - x

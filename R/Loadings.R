@@ -1,3 +1,26 @@
+#' A function to visualize trait loadings onto discriminant function and
+#' principle component axes
+#' 
+#' This function produces barplots representative of the contribution of a
+#' particular trait or variable to either a discriminant function or principle
+#' component axis.
+#' 
+#' 
+#' @param DATA A (non-empty) numeric matrix with trait values
+#' @param GROUPS A (non-empty)factor vector indicating the group membership of
+#' each row in DATA
+#' @param method An optional list indicating whether the results for a
+#' principle component analysis, 'PCA', or linear discriminant analysis, 'LDA'
+#' should be performed.
+#' @return Outputs a .pdf file for each test listed in method.
+#' @seealso \code{\link{pca}}, \code{\link{lda}}
+#' @examples
+#' 
+#' data(Nuclei) 
+#' data(Groups) 
+#' Loadings(Nuclei, Groups, method=c("PCA", "LDA"))
+#' 
+#' @export Loadings
 Loadings <- function(DATA, GROUPS, method = c("PCA", "LDA")) {
     
     if (sum(method == "PCA") > 0) 

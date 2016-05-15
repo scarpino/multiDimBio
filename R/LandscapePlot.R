@@ -1,3 +1,35 @@
+#' A function to visualize the Functional Landscape of measured traits
+#' 
+#' This function plots a three-dimensional landscape of measured traits.  The
+#' peak heights are relative with respect to the input data. The width of each
+#' peak is controlled by the argument sigma and has only an aesthetic purpose.
+#' The 3D image is generated using the
+#' \code{\link[misc3d:drawScene]{drawScene}} and
+#' \code{\link[misc3d:surfaceTriangles]{surfaceTriangles}} .
+#' 
+#' 
+#' @param Data A (non-empty) numeric matrix with trait values
+#' @param Groups A (non-empty)factor vector indicating the group membership of
+#' each row in Data. If there is only a single group present in Data then
+#' Groups=NULL (default).
+#' @param PDF Logical controlling whether to output the results as a .pdf or a
+#' .jpeg.  The default (PDF=FALSE) will produce a .jpeg.  The file size for
+#' .pdf output can be large.
+#' @param LocPlot Logical controlling whether to output a .pdf naming the peaks
+#' according to the columns they represent.  The defaul is FALSE.
+#' @param control An optional numeric vector setting the control parameters for
+#' persp.  control[1] = theta, control[2] = r, control[3] = phi
+#' @return Outputs a .jpeg (or.pdf if PDF=TRUE) file for each column in data.
+#' @examples
+#' 
+#' data(Nuclei) 
+#' data(Groups)
+#'  
+#' #plotting the first six columns
+#' #not run
+#' #LandscapePlot(Nuclei[,1:6], Groups=Groups)
+#' 
+#' @export LandscapePlot
 LandscapePlot <- function(Data, Groups = NULL, PDF = FALSE, LocPlot = FALSE, 
     control = c(75, 1, 30)) {
     

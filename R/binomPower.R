@@ -1,3 +1,45 @@
+#' Power analysis for estimating the heritability of a binomial trait
+#' 
+#' Performs a power analysis for estimating the heritability of a binomial
+#' trait.  This function can take a long time to run if either nsims or nperms
+#' is large.
+#' 
+#' 
+#' @param ndads a (non-empty) numeric value indicating the number of dads.
+#' @param mm a (non-empty) numeric value indicating the mean number of
+#' offspring per dad per bin (normal dist).
+#' @param vv a (non-empty) numeric value indicating the variance in offspring
+#' per dad per bin (normal dist).
+#' @param tau2 a (non-empty) numeric value indicating the dad effect
+#' (narrow-sense heritability ~ tau2/(tau2+(pi/sqrt(3))^2)).
+#' @param nperms a (non-empty) numeric value indicating the number of bootstrap
+#' permutations to use for caluclating a p value.
+#' @param nsims a (non-empty) numeric value indicating the number of
+#' simulations to run per parameter combination.
+#' @param nbins a (non-empty) numeric value indicating the number of bins, data
+#' are pooled before analysis.
+#' @param doPlot a (non-empty) logical value indicating whether to plot the
+#' results of the power analysis.
+#' @return Returns a list and an optional set of .pdfs (if doPlot==TRUE).  The
+#' list contains: \item{roc}{ a data.frame with the summarized results of the
+#' power analysis. }
+#' 
+#' \item{params}{ a numeric matrix with the paramater values. }
+#' 
+#' \item{results}{ a numeric matrix with the full results of the analysis. }
+#' @examples
+#' 
+#' 	ndads <- c(9,18)
+#' 	mm <- 4.629634
+#' 	vv <- 6.31339
+#' 	tau2 <- c(0,0.5)
+#' 	nperms <- 2
+#' 	nsims <- 2
+#' 	nbins <- 3
+#' 	doPlot <- TRUE
+#' 	binomPower(ndads,mm,vv,tau2,nperms,nsims,nbins,doPlot)
+#' 
+#' @export binomPower
 binomPower <- function(ndads, mm, vv, tau2, nperms, nsims, nbins, 
     doPlot = FALSE) {
     getP <- function(ndads, mm, vv, tau2, nperms, nsims, nbins) {

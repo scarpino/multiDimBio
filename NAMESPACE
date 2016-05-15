@@ -12,5 +12,6 @@ import(
   pcaMethods,
   misc3d,
   MASS,
-  RColorBrewer
+  RColorBrewer,
+  gridGraphics
 )

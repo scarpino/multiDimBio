@@ -1,17 +1,17 @@
-\name{binomPower}
+\name{getP}
 
-\alias{binomPower}
+\alias{getP}
 
 \title{
-Power analysis for estimating the heritability of a binomial trait
+An internal function for getting empirical p values
 }
 
 \description{
-Performs a power analysis for estimating the heritability of a binomial trait.  This function can take a long time to run if either nsims or nperms is large.
+Simulates p values.
 }
 
 \usage{
-binomPower(ndads, mm, vv, tau2, nperms, nsims, nbins, alpha = 0.05, doPlot=FALSE)
+getP(ndads, mm, vv, tau2, nperms, nsims, nbins)
 }
 
 \arguments{
@@ -36,28 +36,11 @@ a (non-empty) numeric value indicating the number of simulations to run per para
   \item{nbins}{
 a (non-empty) numeric value indicating the number of bins, data are pooled before analysis.
 }
-  \item{alpha}{
-a (non-empty) numeric value indicating the cutoff for significant p values.
-}
-  \item{doPlot}{
-a (non-empty) logical value indicating whether to plot the results of the power analysis.
-}
 }
 
 
 \value{
-Returns a list and an optional set of .pdfs (if doPlot==TRUE).  The list contains:
-  \item{roc}{
-a data.frame with the summarized results of the power analysis.
-}
-
-  \item{params}{
-a numeric matrix with the paramater values.
-}
-
-  \item{results}{
-a numeric matrix with the full results of the analysis.
-}
+Returns a vector of simulated p values.  The list contains:
 
 }
 
@@ -69,6 +52,5 @@ a numeric matrix with the full results of the analysis.
 	nperms <- 2
 	nsims <- 2
 	nbins <- 3
-	doPlot <- TRUE
-	binomPower(ndads,mm,vv,tau2,nperms,nsims,nbins,doPlot)
+	getP(ndads = ndads, mm = mm, vv = vv, tau2 = tau2, nperms = nperms, nsims = nsims, nbins = nbins)
 }

@@ -1,6 +1,6 @@
-\name{CompleteData}
+\name{completeData}
 
-\alias{CompleteData}
+\alias{completeData}
 
 \title{
 Function to impute missing data.
@@ -11,30 +11,37 @@ This function imputes missing data using a probabilistic principle component ana
 }
 
 \usage{
-CompleteData(DATA, NPCS, cut.trait = 0.5, cut.ind = 0.5, show.test = TRUE)
+completeData(data, n_pcs, cut.trait = 0.5, cut.ind = 0.5, show.test = TRUE)
 }
 
 \arguments{
-  \item{DATA}{
+  \item{data}{
 a (non-empty) numeric matrix of data values.
 }
-  \item{NPCS}{
+  \item{n_pcs}{
 a (non-empty) numeric value indicating the desired number of principle component axes.
 }
   \item{cut.trait}{
-a number indicating the maximum proportion of missing traits before an individual is removed from DATA.  A value of 1 will not remove any individuals and 0 will remove them all.
+a number indicating the maximum proportion of missing traits before an individual is removed from data.  A value of 1 will not remove any individuals and 0 will remove them all.
 }
   \item{cut.ind}{
-a number indicating the maximum proportion of individuals missing a trait score before that trait is removed from DATA.  A value of 1 will not remove any traits and 0 will remove them all.
+a number indicating the maximum proportion of individuals missing a trait score before that trait is removed from data.  A value of 1 will not remove any traits and 0 will remove them all.
 }
   \item{show.test}{
-a logical statement indicating whether a diagnostic plot of the data imputation should be plotted.
+a logical statement indicating whether a diagnostic plot of the data imputation should be returned.
 }
 }
 
 
 \value{
-Returns an object of class matrix with missing values imputed using a probabilistic principle component framework.
+Returns a list with two entries. 
+ \item{complete_dat}{
+an object of class matrix with missing values imputed using a probabilistic principle component framework.
+}
+\item{plots}{
+a list of plots stored as grid plots.
+}
+
 }
 
 \references{
@@ -51,11 +58,11 @@ Troyanskaya O, Cantor M, Sherlock G, Brown P, Hastie T, Tibshirani R, Botstein D
 
 \examples{
 data(Nuclei)
-NPC<-floor(ncol(Nuclei)/5)
+npcs<-floor(ncol(Nuclei)/5)
 
 length(which(is.na(Nuclei))==TRUE)
 
-DAT.comp<-CompleteData(Nuclei, NPCS=NPC)
+dat.comp<-completeData(data = Nuclei, n_pcs = npcs)
 
-length(which(is.na(DAT.comp))==TRUE)
+length(which(is.na(dat.comp))==TRUE)
 }

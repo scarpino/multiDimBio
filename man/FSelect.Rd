@@ -26,7 +26,7 @@ The number of desired traits. Target cannot be greater than the number of column
 The method used to control for false discovery.  The default setting is 'holm'
 }
   \item{Missing.Data}{
-The method used to handle missing data.  The default, 'Complete' will use CompleteData to impute missing data, setting Missing.Data='Remove' will remove all individuals with missing data.  FSelect cannot handle missing data.
+The method used to handle missing data.  The default, 'Complete' will use completeData to impute missing data, setting Missing.Data='Remove' will remove all individuals with missing data.  FSelect cannot handle missing data.
 }
 }
 
@@ -59,20 +59,20 @@ Jennrich R (1977). Stepwise discriminant analysis, volume 3. New York Wiley Sons
 }
 
 \seealso{
-\code{\link{CompleteData}}
+\code{\link{completeData}}
 }
 
 \examples{
 data(Nuclei)
 data(Groups)
-NPC<-floor(ncol(Nuclei)/5)
+npcs<-floor(ncol(Nuclei)/5)
 
-DAT.comp<-CompleteData(Nuclei, NPCS=NPC) 
-Groups.use<-c(1,2) 
-use.DAT<-which(Groups==Groups.use[1]|Groups==Groups.use[2])
+dat.comp <- completeData(data = Nuclei, n_pcs = npcs) 
+groups.use <- c(1,2) 
+use.dat <- which(Groups==groups.use[1]|Groups==groups.use[2])
 
-DAT.use<-Nuclei[use.DAT,]
-GR.use<-Groups[use.DAT]
+dat.use <- Nuclei[use.dat,]
+GR.use <- Groups[use.dat]
 
 #not run
 #FSelect(DAT.use,GR.use,3)

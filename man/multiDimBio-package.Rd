@@ -14,14 +14,14 @@ multiDimBio is a package designed to support a systems biology research program 
 \tabular{ll}{
 Package: \tab multiDimBio\cr
 Type: \tab Package\cr
-Version: \tab 0.4.0\cr
-Date: \tab 2016-05-14\cr
+Version: \tab 0.4.1\cr
+Date: \tab 2016-05-15\cr
 License: \tab GPL 3.0\cr
 LazyLoad: \tab yes\cr
 }
 The datasets are: Nuclei, Groups, CondA, CondB, Scores, and Dyad
 
-The main functions are: BoxWhisker, CompleteData, FSelect, IntPlot, ldaPlot, Loadings, MeanCent, PercentMax, PermuteLDA, Power, PPCA, ZTrans, binomPower, h2Estimate, and plotBinomPower.
+The main functions are: boxWhisker, completeData, F_select, intPlot, ldaPlot, loadings, meanCent, percentMax, permuteLDA, power, ppca_mdb, zTrans, binomPower, h2Estimate, and plotBinomPower.
 
 Type ?<object> to learn more about these objects, e.g. ?Nuclei
 
@@ -29,7 +29,7 @@ Type ?<function> to see examples of the function's use, e.g. ?FSelect
 }
 
 \author{
-	Samuel V Scarpino, Ross Gillette, and David Crews
+	Samuel V Scarpino
 	Maintainer: Samuel V Scarpino <scarpino@utexas.edu>
 }
 
@@ -41,6 +41,8 @@ Costanza M, Afifi A. (1979) Comparison of Stopping Rules in Forward Stepwise Dis
 Crews D, Gillette R, Scarpino SV, Manikkam M, Savenkova MI, Skinner MK. (2012)
 Epigenetic Transgenerational Alterations to Stress Response in Brain Gene Networks and 
 Behavior. Proc. Natl. Acad. Sci. USA: 109(23) 9143 - 9148.
+
+Davies SW, Scarpino SV, Pongwarin T, Scott J, Matz MV. (2015) Estimating Trait Heritability in Highly Fecund Species. G3: Genes| Genomes| Genetics: 5(12) 2639 - 45.
 
 Habbema J, Hermans J. (1977) Selection of Variables in Discriminant Analysis by F-Statistics and Error Rate. Technometrics: 19(4) 487 - 493.
 

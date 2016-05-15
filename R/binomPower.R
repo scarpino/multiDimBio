@@ -40,16 +40,8 @@
 #' 	binomPower(ndads,mm,vv,tau2,nperms,nsims,nbins,doPlot)
 #' 
 #' @export binomPower
-binomPower <- function(ndads, mm, vv, tau2, nperms, nsims, nbins, 
+binomPower <- function(ndads, mm, vv, tau2, nperms, nsims, nbins, alpha = 0.05, 
     doPlot = FALSE) {
-    getP <- function(ndads, mm, vv, tau2, nperms, nsims, nbins) {
-        ps <- c()
-        for (i in 1:nsims) {
-            p.i <- simPower(ndads, mm, vv, tau2, nperms, nbins)
-            ps <- c(ps, p.i)
-        }
-        return(ps)
-    }  #end getP
     
     # power analysis code
     params <- expand.grid(tau2, ndads, mm, vv)
@@ -58,9 +50,6 @@ binomPower <- function(ndads, mm, vv, tau2, nperms, nsims, nbins,
     if (length(rm) > 0) {
         params <- params[-rm, ]
     }
-    tstamp <- as.character(as.integer(Sys.time()))
-    write.csv(params, file = paste0("simPowerParams", "_", tstamp, 
-        ".csv"), row.names = FALSE)
     
     ptest <- vector("list", nrow(params))
     out <- c()
@@ -73,13 +62,8 @@ binomPower <- function(ndads, mm, vv, tau2, nperms, nsims, nbins,
     }
     
     out.save <- matrix(out, ncol = nsims, byrow = TRUE)
-    write.csv(out.save, file = paste0(tstamp, ".csv"), row.names = FALSE)
     
-    rejectM0 <- function(x) {
-        return(length(which(x < 0.05)))
-    }
-    
-    reject <- apply(out.save, 1, rejectM0)
+    reject <- apply(out.save, 1, function(x, alpha) return(length(which(x < alpha))), alpha = alpha)
     reject <- reject/nsims
     
     trueM0 <- which(params$tau2[1:length(reject)] == 0)
@@ -97,8 +81,8 @@ binomPower <- function(ndads, mm, vv, tau2, nperms, nsims, nbins,
         "-", "nDads", ":", dat.plot$ndads)
     dat.plot$trueTau <- as.factor(dat.plot$trueTau)
     dat.plot$ndads <- as.factor(dat.plot$ndads)
-    write.csv(dat.plot, paste0("roc", "_", tstamp, ".csv"), row.names = FALSE)
     
+    tstamp <- as.numeric(Sys.time())
     if (doPlot == TRUE) {
         plotBinomPower(dat.plot, params, tstamp)
     }

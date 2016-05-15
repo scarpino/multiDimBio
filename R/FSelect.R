@@ -11,7 +11,7 @@
 #' @param p.adj.method The method used to control for false discovery.  The
 #' default setting is 'holm'
 #' @param Missing.Data The method used to handle missing data.  The default,
-#' 'Complete' will use CompleteData to impute missing data, setting
+#' 'Complete' will use completeData to impute missing data, setting
 #' Missing.Data='Remove' will remove all individuals with missing data.
 #' FSelect cannot handle missing data.
 #' @return FSelect saves the details of the final lda model as an object in the
@@ -24,7 +24,7 @@
 #' column indicated in Selected.  } \item{PrF}{ An ordered list containing the
 #' p values for each column indicated in Selected. } \item{PrNotes}{ A string
 #' indicating which method was used to control for multiple comparisons }
-#' @seealso \code{\link{CompleteData}}
+#' @seealso \code{\link{completeData}}
 #' @references Costanza M, Afifi A (1979). Comparison of Stopping Rules in
 #' Forward Stepwise Discriminant Analysis. Journal of the American Statistical
 #' Association, pp. 777 - 78
@@ -40,7 +40,7 @@
 #' data(Groups)
 #' NPC<-floor(ncol(Nuclei)/5)
 #' 
-#' DAT.comp<-CompleteData(Nuclei, NPCS=NPC) 
+#' DAT.comp<-completeData(Nuclei, n_pcs=NPC) 
 #' Groups.use<-c(1,2) 
 #' use.DAT<-which(Groups==Groups.use[1]|Groups==Groups.use[2])
 #' 
@@ -60,10 +60,10 @@ FSelect <- function(Data, Group, target, p.adj.method = "holm",
     # Missing data
     if (Missing.Data == "Complete" & length(which(is.na(Data) == 
         TRUE)) > 0) {
-        cat("Missing data imputed using CompleteData to exlude missing data set Missing.Data=Remove", 
+        cat("Missing data imputed using completeData to exlude missing data set Missing.Data=Remove", 
             "\n", "\n")
-        Data <- CompleteData(Data, NPCS = floor(ncol(Data)/5), 
-            cut.trait = 1, cut.ind = 1)
+        Data <- completeData(Data, n_pcs = floor(ncol(Data)/5), 
+            cut.trait = 1, cut.ind = 1)$complete_dat
     }
     
     if (Missing.Data == "Remove" & length(which(is.na(Data) == 

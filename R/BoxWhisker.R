@@ -3,9 +3,9 @@
 #' A function to create a box and whisker plot by group ID.
 #' 
 #' 
-#' @param DATA a (non-empty) matrix of data values
-#' @param GROUPS a (non-empty) vector of Group IDs with length equal to the
-#' number of rows in DATA
+#' @param data a (non-empty) matrix of data values
+#' @param groups a (non-empty) vector of group IDs with length equal to the
+#' number of rows in data
 #' @param palette A color palette for plotting.  The default is 'Paired.'  See
 #' colorbrewer2.org for alternatives.
 #' @return Saves a box-whisker plot of the data by group ID as a .pdf in the
@@ -13,33 +13,28 @@
 #' @examples
 #' 
 #' data(Nuclei)
-#' data(Groups)
-#' BoxWhisker(Nuclei, Groups)
+#' data(groups)
+#' boxWhisker(Nuclei, groups)
 #' 
 #' #changing the color palette
 #' 
-#' BoxWhisker(Nuclei, Groups, palette='Set1')
+#' boxWhisker(Nuclei, groups, palette='Set1')
 #' 
-#' @export BoxWhisker
-BoxWhisker <- function(DATA, GROUPS, palette = "Paired") {
+#' @export boxWhisker
+boxWhisker <- function(data, groups, palette = "Paired") {
     
-    message <- paste("Using", palette, sep = " ")
+    dat <- as.matrix(data)
+    score <- matrix(dat, ncol = 1)
+    trait <- colnames(data)
+    trait <- rep(trait, each = nrow(dat))
+    group <- rep(groups, ncol(dat))
     
-    cat(paste(message, "palette from colorbrewer2.org", sep = " "), 
-        "\n", "\n")
+    dat.df <- data.frame(score, trait, group)
+    dat.df$group <- factor(dat.df$group)
+    dat.trait <- factor(dat.df$trait)
     
-    DAT <- as.matrix(DATA)
-    SCORE <- matrix(DAT, ncol = 1)
-    TRAIT <- colnames(DATA)
-    TRAIT <- rep(TRAIT, each = nrow(DAT))
-    GROUP <- rep(GROUPS, ncol(DAT))
-    
-    DAT.df <- data.frame(SCORE, TRAIT, GROUP)
-    DAT.df$GROUP <- factor(DAT.df$GROUP)
-    DAT.TRAIT <- factor(DAT.df$TRAIT)
-    
-    p <- ggplot(DAT.df, aes(TRAIT, SCORE))
-    p.save <- p + geom_boxplot(aes(fill = GROUP), outlier.shape = NA) + 
+    p <- ggplot(dat.df, aes(trait, score))
+    p.save <- p + geom_boxplot(aes(fill = group), outlier.shape = NA) + 
         scale_fill_brewer(palette = palette) + theme(legend.position = "right", 
         legend.background = element_rect(fill = "#ffffffaa", colour = "black"), 
         panel.background = element_rect(fill = "white", colour = "black"), 
@@ -49,8 +44,6 @@ BoxWhisker <- function(DATA, GROUPS, palette = "Paired") {
         legend.key = element_rect(fill = "white "), panel.grid.minor = element_blank(), 
         panel.grid.major = element_blank())
     
-    timestamp <- as.character(as.integer(Sys.time()))
-    ggsave(filename = paste(timestamp, "BoxWhisker.pdf", sep = "_"), 
-        p.save)
+    return(p.save)
 }  #end FUNCTION
 

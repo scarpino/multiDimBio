@@ -1,34 +1,34 @@
-\name{BoxWhisker}
-\alias{BoxWhisker}
+\name{boxWhisker}
+\alias{boxWhisker}
 \title{A function to create a box and whisker plot by group ID
 }
 \description{
 A function to create a box and whisker plot by group ID.
 }
 \usage{
-BoxWhisker(DATA, GROUPS, palette = "Paired")
+boxWhisker(data, groups, palette = "Paired")
 }
 \arguments{
-  \item{DATA}{
+  \item{data}{
 a (non-empty) matrix of data values
 }
-  \item{GROUPS}{
-a (non-empty) vector of Group IDs with length equal to the number of rows in DATA
+  \item{groups}{
+a (non-empty) vector of group IDs with length equal to the number of rows in data
 }
   \item{palette}{
 A color palette for plotting.  The default is 'Paired.'  See colorbrewer2.org for alternatives.
 }
 }
 \value{
-Saves a box-whisker plot of the data by group ID as a .pdf in the working directory.
+Returns a box-whisker plot of the data by group ID.
 }
 \examples{
 data(Nuclei)
 data(Groups)
-BoxWhisker(Nuclei, Groups)
+boxWhisker(Nuclei, Groups)
 
 #changing the color palette
 
-BoxWhisker(Nuclei, Groups, palette='Set1')
+boxWhisker(data = Nuclei, groups = Groups, palette = 'Set1')
 }
 

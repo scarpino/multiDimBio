@@ -37,6 +37,8 @@ ldaPlot <- function(Data, Groups, palette = "BrBG", axes = c(1,
         TOL <- 1e-04
     }
     
+    plots_ret <- list()
+    
     Groups <- as.factor(Groups)
     Groups <- as.numeric(Groups)
     
@@ -111,9 +113,8 @@ ldaPlot <- function(Data, Groups, palette = "BrBG", axes = c(1,
             panel.grid.minor = element_blank(), panel.grid.major = element_blank())
         
         timestamp <- as.character(as.integer(Sys.time()))
-        plots_ret[[paste(timestamp, comp[j, 1], comp[j, 2], "Group LDA Plot", 
-            sep = " ")]] <- psave.j
+        plots_ret[[paste(comp[j, 1], comp[j, 2], "Group LDA Plot", sep = " ")]] <- psave.j
     }  #end for j
-    
+    return(plots_ret)
 }  #end FUNCTION
 

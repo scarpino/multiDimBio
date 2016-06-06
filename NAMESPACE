@@ -5,6 +5,10 @@
 exportPattern(".")
 
 # Import all packages listed as Imports or Depends
+importFrom(grDevices, colorRampPalette, dev.off, palette, pdf, recordPlot)
+importFrom(graphics, barplot, hist, layout, persp, plot, segments, text)
+importFrom(stats, aggregate, binomial, deviance, df, glm, interaction.plot, lm, na.omit, p.adjust, predict, rbinom, rnbinom, rnorm, runif, sd)
+importFrom(utils, timestamp)
 importFrom(lme4, glmer, VarCorr)
 
 import(

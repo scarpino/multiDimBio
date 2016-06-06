@@ -81,6 +81,6 @@ Loadings <- function(DATA, GROUPS, method = c("PCA", "LDA")) {
                 plots_ret[[paste(j, "LDA-Loadings.pdf", sep = "_")]] <- recordPlot()
             }  #end for j
         }  #end if LDA
-    return("results" = results, "plots" = plots_ret)
+    return(list("results" = results, "plots" = plots_ret))
 }  #end FUNCTION
 

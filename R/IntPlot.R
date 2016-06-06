@@ -32,12 +32,10 @@
 #' @export IntPlot
 IntPlot <- function(Scores, Cov.A, Cov.B, pvalues = rep(1, 8), 
     int.pvalues = rep(1, 4)) {
-    
-    cat("It is best to use this function with PC scores", "\n", 
-        "\n")
+   
     
     if (ncol(Scores) > 4) {
-        cat("Only the first 4 Score axes are plotted", "\n", "\n")
+        warning("Only the first 4 Score axes are plotted", "\n", "\n")
     }
     
     # line colors
@@ -54,7 +52,9 @@ IntPlot <- function(Scores, Cov.A, Cov.B, pvalues = rep(1, 8),
     int.pvalues[int.pvalues <= 0.05] <- 1
     LTY <- int.pvalues
     
-    pdf("Pvalue-Colors-InteractionPlots.pdf")
+    plots_ret <- list()
+    
+    #interaction plot
     plot(rep(0, 4), 1:4, pch = 15, col = colors, cex = 5, xaxt = "n", 
         yaxt = "n", xlab = "", ylab = "", xlim = c(0, 0.5), ylim = c(0, 
             4), lwd = 2)
@@ -66,10 +66,10 @@ IntPlot <- function(Scores, Cov.A, Cov.B, pvalues = rep(1, 8),
     text(0.1, 1, labels = "p >0.05", cex = 2)
     text(0.27, 0.5, labels = "Interaction Significant", cex = 2)
     text(0.3, 0, labels = "Interaction Not Significant", cex = 2)
-    dev.off()
     
-    timestamp <- as.character(as.integer(Sys.time()))
-    pdf(paste(timestamp, "Interaction Plots-LEGEND.pdf", sep = "-"))
+    plots_ret[["Pvalue-Colors-InteractionPlots"]] <- recordPlot()
+    
+   	#interaction plot legend
     layout(matrix(c(1, 2, 3, 4), ncol = 2, byrow = TRUE))
     
     for (i in 1:4) {
@@ -77,9 +77,9 @@ IntPlot <- function(Scores, Cov.A, Cov.B, pvalues = rep(1, 8),
             ylab = paste("Axis", i, "Score", sep = " "), xlab = "", 
             col = c(COL[i, 1], COL[i, 2]), lty = LTY[i], lwd = 2)
     }
-    dev.off()
+    plots_ret[["Interaction Plots-LEGEND"]] <- recordPlot()
     
-    pdf(paste(timestamp, "Interaction Plots.pdf", sep = "-"))
+    #interaction plots no colors
     layout(matrix(c(1, 2, 3, 4), ncol = 2, byrow = TRUE))
     
     for (i in 1:4) {
@@ -87,7 +87,8 @@ IntPlot <- function(Scores, Cov.A, Cov.B, pvalues = rep(1, 8),
             ylab = paste("Axis", i, "Score", sep = " "), xlab = "", 
             col = c(COL[i, 1], COL[i, 2]), lty = LTY[i], lwd = 2)
     }
-    dev.off()
+    plots_ret[["Interaction Plots"]] <- recordPlot()
     
-}  #end FUNCTION
+    return(plots_ret)
+}  #end function
 

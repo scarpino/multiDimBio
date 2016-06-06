@@ -31,8 +31,6 @@ The method used to handle missing data.  The default, 'Complete' will use comple
 }
 
 \value{
-FSelect saves the details of the final lda model as an object in the working directory.
-
 FSelect returns list containing at least the following components:
 
 \item{Selected}{
@@ -47,7 +45,9 @@ FSelect returns list containing at least the following components:
 \item{PrNotes}{
 	A string indicating which method was used to control for multiple comparisons
 }
-
+\item{model}{
+	An lm object with the final model results.	
+}
 }
 
 \references{

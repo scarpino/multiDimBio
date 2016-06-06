@@ -30,7 +30,7 @@ An optional vector of p values for each interaction.  The length of int.pvalues 
 }
 
 \value{
-Outputs a .pdf file of the interaction plot and key relating color and linetype to significance to the working directory.  
+a list of plots stored as grid plots.  
 }
 
 \seealso{

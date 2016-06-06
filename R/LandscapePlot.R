@@ -34,11 +34,11 @@ LandscapePlot <- function(Data, Groups = NULL, PDF = FALSE, LocPlot = FALSE,
     control = c(75, 1, 30)) {
     
     if (is.matrix(Data) == FALSE) {
-        cat("Data must be a matrix", "\n", "\n")
+        stop("Data must be a matrix", "\n", "\n")
     }
     
     if (ncol(Data) > 9) {
-        cat("Does not plot more than 9 traits", "\n", "\n")
+        stop("Does not plot more than 9 traits", "\n", "\n")
     }
     
     
@@ -209,8 +209,7 @@ LandscapePlot <- function(Data, Groups = NULL, PDF = FALSE, LocPlot = FALSE,
                 "9")
         }
         
-        timestamp <- as.character(as.integer(Sys.time()))
-        print(timestamp)
+        plots_ret <- list()
         if (PDF == TRUE) {
             pdf(paste(Groups[j], timestamp, "Functional Landscape.pdf"))
             persp(seq(0, 1, length.out = nrow(M.plot)), seq(0, 
@@ -219,22 +218,25 @@ LandscapePlot <- function(Data, Groups = NULL, PDF = FALSE, LocPlot = FALSE,
                 r = control[2], phi = control[3])
             dev.off()
         } else {
-            jpeg(paste(Groups[j], timestamp, "Functional Landscape.jpeg"), 
-                width = 3840, height = 3840, quality = 100)
+           
             persp(seq(0, 1, length.out = nrow(M.plot)), seq(0, 
                 1, length.out = nrow(M.plot)), M.plot, box = FALSE, 
                 col = "#F0F0F0", border = "#969696", theta = control[1], 
                 r = control[2], phi = control[3])
-            dev.off()
+                
+            plots_ret[[paste0(j,"-landscape")]] <- recordPlot()
+            
         }  #end if/else if PDF==TRUE
         if (LocPlot == TRUE) {
-            pdf(paste(Groups[j], timestamp, "Functional Landscape-NAMES.pdf"))
+            
             drawScene(surfaceTriangles(1:nrow(M.plot), 1:ncol(M.plot), 
                 M.plot, color = "gray"), screen = list(z = 40, 
                 x = -60))
             text(posx, posy, labels)
-            dev.off()
+            
+            plots_ret[[paste0(j,"Functional Landscape-NAMES")]] <- recordPlot()
+            
         }
     }  #end for j
-    
+    return(plots_ret)
 }  #end FUNCTION

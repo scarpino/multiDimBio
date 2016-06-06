@@ -25,7 +25,7 @@ Loadings(DATA, GROUPS, method = c("PCA", "LDA"))
 }
 
 \value{
-Outputs a .pdf file for each test listed in method.
+Outputs a list with values and plots for each test listed in method.
 }
 
 \seealso{

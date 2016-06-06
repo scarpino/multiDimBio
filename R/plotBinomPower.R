@@ -7,7 +7,6 @@
 #' ndads, trueTau2
 #' @param params a (non-empty) matrix of parameter values, with columns mm and
 #' vv.
-#' @param timeStamp A timeStamp.
 #' @return Saves two plots of the binomPower analysis results a .pdf in the
 #' working directory.
 #' @examples
@@ -15,7 +14,7 @@
 #' #not run
 #' 
 #' @export plotBinomPower
-plotBinomPower <- function(datPlotBig, params, timeStamp = Sys.time()) {
+plotBinomPower <- function(datPlotBig, params) {
     
     if (length(unique(params$mm)) > 1) {
         stop("function does not work with more than one mean offspring number")
@@ -27,9 +26,7 @@ plotBinomPower <- function(datPlotBig, params, timeStamp = Sys.time()) {
     
     # solving ggplot2 binding error
     ndads <- NULL
-    
-    timeStamp <- as.character(as.integer(timeStamp))
-    
+      
     # preping data setss
     datPlotBig$trueTau <- as.factor(datPlotBig$trueTau)
     datPlotBig$ndads <- round(as.numeric(as.character(datPlotBig$ndads)))
@@ -42,6 +39,8 @@ plotBinomPower <- function(datPlotBig, params, timeStamp = Sys.time()) {
     pal <- cols(length(unique(datPlotBig$ndads)))
     
     ###### plotting#
+    
+    plots_ret <- list()
     
     # values h2 > 0
     use <- which(datPlotBig$trueTau2 > 0)
@@ -67,7 +66,7 @@ plotBinomPower <- function(datPlotBig, params, timeStamp = Sys.time()) {
         0.005)) + scale_x_continuous(expand = c(0, 0.003), limits = c(0, 
         max(dat.plot$h2)))
     
-    ggsave(paste0("powerCurveBinom_", timeStamp, ".pdf"), p.save)
+    plots_ret[["powerCurveBinom"]] <- p.save
     
     # values h2 == 0
     use <- which(datPlotBig$trueTau2 == 0)
@@ -95,6 +94,7 @@ plotBinomPower <- function(datPlotBig, params, timeStamp = Sys.time()) {
         0), limits = c(0, 1)) + scale_x_discrete(expand = c(0.01, 
         0.01))
     
-    ggsave(paste0("powerTrue_h2_equal_0_Binom_", timeStamp, ".pdf"), 
-        p1.save)
+    plots_ret[["powerTrue_h2_equal_0_Binom"]] <- p1.save
+    
+    return(plots_ret)
 }

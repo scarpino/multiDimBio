@@ -58,7 +58,7 @@ PermuteLDA <- function(Data, Groups, NPerm, Missing.Data = "Complete") {
     # Missing data
     if (Missing.Data == "Complete" & length(which(is.na(Data) == 
         TRUE)) > 0) {
-        cat("Missing data imputed using completeData to exlude missing data set Missing.Data=Remove", 
+        warning("Missing data imputed using completeData to exlude missing data set Missing.Data=Remove", 
             "\n", "\n")
         Data <- completeData(Data, n_pcs = floor(ncol(Data)/5), 
             cut.trait = 1, cut.ind = 1)$complete_dat
@@ -66,7 +66,7 @@ PermuteLDA <- function(Data, Groups, NPerm, Missing.Data = "Complete") {
     
     if (Missing.Data == "Remove" & length(which(is.na(Data) == 
         TRUE)) > 0) {
-        cat("Individuals with missing data removed, to impute missing data set Missing.Data=Complete", 
+        warning("Individuals with missing data removed, to impute missing data set Missing.Data=Complete", 
             "\n", "\n")
         rm <- na.omit(Data)
         Data <- Data[-attr(rm, "na.action"), ]

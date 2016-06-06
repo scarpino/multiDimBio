@@ -29,7 +29,7 @@ ldaPlot(Data, Groups, palette = "BrBG", axes = c(1, 2, 2, 3, 1, 3))
 }
 
 \value{
-Outputs a .pdf of the results
+Returns a list of ggplot2 plots.
 }
 
 

@@ -31,7 +31,7 @@ LandscapePlot(Data, Groups=NULL, PDF=FALSE,LocPlot=FALSE,control=c(75,1,30))
 }
 
 \value{
-Outputs a .jpeg (or.pdf if PDF=TRUE) file for each column in data.
+a list of plots stored as grid plots (or.pdf if PDF=TRUE) file for each column in data.
 }
 
 \examples{

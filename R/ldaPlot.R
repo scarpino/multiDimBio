@@ -45,7 +45,7 @@ ldaPlot <- function(Data, Groups, palette = "BrBG", axes = c(1,
             
             if (length(unique(Groups)) > 6) 
                 {
-                  cat("Will not work with more than 6 groups", 
+                  stop("Will not work with more than 6 groups", 
                     "\n", "\n")
                 }  #end if >6
             
@@ -53,9 +53,7 @@ ldaPlot <- function(Data, Groups, palette = "BrBG", axes = c(1,
             pm1 <- predict(ld1)
             GC <- as.factor(pm1$class)
             pm1df <- data.frame(GC, pm1$x)
-            
-            cat(paste("Plotting specified axes using", palette, 
-                "palette", sep = " "), "\n", "\n")
+
             
             AX <- matrix(axes, ncol = 2, byrow = TRUE)
             
@@ -77,9 +75,9 @@ ldaPlot <- function(Data, Groups, palette = "BrBG", axes = c(1,
                     size = 15), legend.key = element_rect(fill = "white "), 
                     panel.grid.minor = element_blank(), panel.grid.major = element_blank())
                 
-                timestamp <- as.character(as.integer(Sys.time()))
-                ggsave(paste(timestamp, "ldaPlot-AllGroups.pdf"), 
-                  pi.save)
+                
+                plots_ret[["ldaPlot-AllGroups"]] <- pi.save
+
             }  #end for i
         }  #end if unique(groups)>2
     
@@ -113,8 +111,8 @@ ldaPlot <- function(Data, Groups, palette = "BrBG", axes = c(1,
             panel.grid.minor = element_blank(), panel.grid.major = element_blank())
         
         timestamp <- as.character(as.integer(Sys.time()))
-        ggsave(paste(timestamp, comp[j, 1], comp[j, 2], "Group LDA Plot.pdf", 
-            sep = " "), psave.j)
+        plots_ret[[paste(timestamp, comp[j, 1], comp[j, 2], "Group LDA Plot", 
+            sep = " ")]] <- psave.j
     }  #end for j
     
 }  #end FUNCTION

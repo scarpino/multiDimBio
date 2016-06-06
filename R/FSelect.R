@@ -156,13 +156,9 @@ FSelect <- function(Data, Group, target, p.adj.method = "holm",
     notes <- paste("PrF has been", p.adj.method, "adjusted for", 
         counter, "comparisons", sep = " ")
     
-    OUT <- list(Selected = selected, F.Selected = F.selected, 
-        PrF = PrFs, PrNotes = notes)
+    results <- list("Selected" = selected, "F.Selected" = F.selected, 
+        "PrF" = PrFs, "PrNotes" = notes, "model" = m.final)
     
-    timestamp <- as.character(as.integer(Sys.time()))
-    save(m.final, file = paste(timestamp, "FSelect-finalLDA", 
-        sep = "-"))
-    
-    return(OUT)
+    return(results)
 }  #end F.select
 

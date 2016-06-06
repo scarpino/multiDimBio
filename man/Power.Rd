@@ -30,7 +30,7 @@ The algorithm for the power analysis proceeds as follows:
 1. Input sample and effect sizes2. Set the number of significant effects, e to 0. Note - Total number of traits is fixed at 63. Draw random deviates for the given sample size for 6 traits. Note - All traits not significant under this iteration are drawn from a N(0,1) distribution.4. Perform either FSelect() or PermuteLDA() and record the results. 5. Return to step 3 N times, recording the results each time. Note - N is set using thetrials input6. If e<5 return to step 2 and set the number of significant effects to e+17. Proceed to the next combination of sample and effect size.8. Output the results for each combination of sample and effect size as a function of the number of significant traits.
 }
 \value{
-Outputs a .pdf file for each effect size.
+Outputs a list with plots and results for each effect size.
 }
 \seealso{
 \code{\link{PermuteLDA}},\code{\link{FSelect}}

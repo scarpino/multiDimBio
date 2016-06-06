@@ -23,6 +23,9 @@
 #' @export Loadings
 Loadings <- function(DATA, GROUPS, method = c("PCA", "LDA")) {
     
+    results <- list()
+    plots_ret <- list()
+    
     if (sum(method == "PCA") > 0) 
         {
             nPCS = floor(ncol(DATA)/5)
@@ -34,24 +37,19 @@ Loadings <- function(DATA, GROUPS, method = c("PCA", "LDA")) {
             rownames(OUT) <- 1:nrow(OUT)
             NAMES <- data.frame(1:nrow(OUT), rownames(PPCA@loadings))
             colnames(NAMES) <- c("Number", "Trait")
-            cat("Number to trait map, saved as a .csv in the working dir.", 
-                "\n", "\n")
-            print(NAMES)
+
             
-            timestamp <- as.character(as.integer(Sys.time()))
-            write.csv(NAMES, paste(timestamp, "Number_Trait_PCA.csv"), 
-                row.names = FALSE)
+            results[["Number_Trait_PCA"]] <- NAMES
             
-            timestamp <- as.character(as.integer(Sys.time()))
-            write.csv(PPCA@loadings, paste(timestamp, "PCA Loadings.csv"))
+            results[["Loadings"]] <- PPCA@loadings
             
-            timestamp <- as.character(as.integer(Sys.time()))
             for (i in 1:nPCS) {
-                pdf(paste(timestamp, i, "PCA-Loadings.pdf", sep = "_"))
+               
                 title <- paste("PC", i, sep = "")
                 barplot(abs(OUT[, i]), main = paste(title, "- Variance Explained = ", 
                   round(PPCA@R2[i], 3)), cex.names = 0.5)
-                dev.off()
+                
+                plots_ret[[paste(i, "PCA-Loadings.pdf", sep = "_")]] <- recordPlot()
             }  #end for i
             
         }  #end if PCA
@@ -71,23 +69,18 @@ Loadings <- function(DATA, GROUPS, method = c("PCA", "LDA")) {
             rownames(OUT) <- 1:nrow(OUT)
             NAMES <- data.frame(1:nrow(OUT), rownames(LDA$scaling))
             colnames(NAMES) <- c("Number", "Trait")
-            cat("Number to trait map, saved as a .csv in the working dir.", 
-                "\n", "\n")
-            print(NAMES)
-            timestamp <- as.character(as.integer(Sys.time()))
-            write.csv(NAMES, paste(timestamp, "Number_Trait_LDA.csv"), 
-                row.names = FALSE)
-            timestamp <- as.character(as.integer(Sys.time()))
-            write.csv(LDA$scaling, paste(timestamp, "LDA Loadings.csv"))
+     
+      
+            results[["Number_Trait_PCA"]] <- NAMES
             
-            timestamp <- as.character(as.integer(Sys.time()))
+            results[["Loadings"]] <- LDA$scaling
+            
             for (j in 1:ncol(OUT)) {
-                pdf(paste(timestamp, j, "LDA-Loadings.pdf", sep = "_"))
                 title <- paste("LD", j, sep = "")
                 barplot(abs(OUT[, j]), main = title, cex.names = 0.5)
-                dev.off()
+                plots_ret[[paste(j, "LDA-Loadings.pdf", sep = "_")]] <- recordPlot()
             }  #end for j
         }  #end if LDA
-    
+    return("results" = results, "plots" = plots_ret)
 }  #end FUNCTION
 

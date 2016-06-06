@@ -56,6 +56,9 @@ Power <- function(func = "PermuteLDA", N = "DEFAULT.N", effect.size = "DEFAULT.e
     
     counter <- length(ES)
     
+    res <- list()
+    plots_rest <- list()
+    
     for (e in ES) {
         start <- Sys.time()
         
@@ -160,20 +163,18 @@ Power <- function(func = "PermuteLDA", N = "DEFAULT.N", effect.size = "DEFAULT.e
                 size = 15), legend.key = element_rect(fill = "white "), 
                 panel.grid.minor = element_blank(), panel.grid.major = element_blank())
         
-        ggsave(filename = paste(as.character(effect), func, "pdf", 
-            sep = "."), p.save)
-        
-        write.csv(DAT, file = paste(as.character(effect), func, 
-            "csv", sep = "."))
+        plots_ret[[paste(as.character(effect), func, 
+            sep = ".")]] <- p.save
+
+        res[[paste(as.character(effect), func, sep = ".")]] <- DAT
         
         counter <- counter - 1
         end <- Sys.time()
         total <- end - start
         remaining <- total * counter
-        print(remaining)
-        cat("The above was the estimated remaining time", "\n", 
-            "\n")
+        print()
+        cat(paste0(remaining," estimated time remaining"), "\n", "\n")
     }  #end for e
-    cat("Results saved as .pdfs in working dir", "\n", "\n")
+    return(list("results" = res, "plots" = plots_ret))
 }  #end FUNCTION
 

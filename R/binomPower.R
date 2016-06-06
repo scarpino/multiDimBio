@@ -84,7 +84,7 @@ binomPower <- function(ndads, mm, vv, tau2, nperms, nsims, nbins, alpha = 0.05,
     
     tstamp <- as.numeric(Sys.time())
     if (doPlot == TRUE) {
-        plotBinomPower(dat.plot, params, tstamp)
+        plotBinomPower(datPlotBig = dat.plot, params = params)
     }
     
     out <- list(roc = dat.plot, params = params, results = out.save)

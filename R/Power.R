@@ -28,7 +28,7 @@
 #' @param effect.size A (non-empty) vector or single value of effect sizes.
 #' @param trials A number indicating the number of trials for each combination
 #' of N and effect.size to calculate the power.
-#' @return Outputs a .pdf file for each effect size.
+#' @return Outputs a list with plots and results for each effect size.
 #' @seealso \code{\link{PermuteLDA}},\code{\link{FSelect}}
 #' @examples
 #' 

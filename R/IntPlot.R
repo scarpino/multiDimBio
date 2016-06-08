@@ -15,8 +15,7 @@
 #' times 2.
 #' @param int.pvalues An optional vector of p values for each interaction.  The
 #' length of int.pvalues must equal the number of columns in Scores.
-#' @return Outputs a .pdf file of the interaction plot and key relating color
-#' and linetype to significance to the working directory.
+#' @return a list of plots stored as grid plots.
 #' @seealso \code{\link{interaction.plot}}
 #' @examples
 #' 

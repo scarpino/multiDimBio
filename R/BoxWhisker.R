@@ -8,17 +8,16 @@
 #' number of rows in data
 #' @param palette A color palette for plotting.  The default is 'Paired.'  See
 #' colorbrewer2.org for alternatives.
-#' @return Saves a box-whisker plot of the data by group ID as a .pdf in the
-#' working directory.
+#' @return Returns a box-whisker plot of the data by group ID.
 #' @examples
 #' 
 #' data(Nuclei)
-#' data(groups)
-#' boxWhisker(Nuclei, groups)
+#' data(Groups)
+#' boxWhisker(Nuclei, Groups)
 #' 
 #' #changing the color palette
 #' 
-#' boxWhisker(Nuclei, groups, palette='Set1')
+#' boxWhisker(data = Nuclei, groups = Groups, palette = 'Set1')
 #' 
 #' @export boxWhisker
 boxWhisker <- function(data, groups, palette = "Paired") {

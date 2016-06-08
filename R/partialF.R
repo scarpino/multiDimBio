@@ -23,7 +23,7 @@
 #' 
 #' NPC<-floor(ncol(Nuclei)/5)
 #' 
-#' DAT.comp<-CompleteData(Nuclei, NPCS=NPC) 
+#' DAT.comp<-completeData(Nuclei, n_pcs = NPC) 
 #' Groups.use<-c(1,2) 
 #' use.DAT<-which(Groups==Groups.use[1]|Groups==Groups.use[2])
 #' 

@@ -7,8 +7,7 @@
 #' ndads, trueTau2
 #' @param params a (non-empty) matrix of parameter values, with columns mm and
 #' vv.
-#' @return Saves two plots of the binomPower analysis results a .pdf in the
-#' working directory.
+#' @return Returns a list of two plots of the binomPower analysis results.
 #' @examples
 #' 
 #' #not run

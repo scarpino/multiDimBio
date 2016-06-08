@@ -17,7 +17,7 @@
 #' @param axes A numeric vector describing which axes to compare.  For example,
 #' axes=c(1,2) will on produce a single plot comparing the first and second
 #' axis.
-#' @return Outputs a .pdf of the results
+#' @return Returns a list of ggplot2 plots.
 #' @seealso \code{\link{lda}}
 #' @examples
 #' 

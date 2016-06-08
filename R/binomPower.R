@@ -18,6 +18,8 @@
 #' simulations to run per parameter combination.
 #' @param nbins a (non-empty) numeric value indicating the number of bins, data
 #' are pooled before analysis.
+#' @param alpha a (non-empty) numeric value indicating the cutoff for
+#' significant p values.
 #' @param doPlot a (non-empty) logical value indicating whether to plot the
 #' results of the power analysis.
 #' @return Returns a list and an optional set of .pdfs (if doPlot==TRUE).  The

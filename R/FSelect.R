@@ -14,16 +14,14 @@
 #' 'Complete' will use completeData to impute missing data, setting
 #' Missing.Data='Remove' will remove all individuals with missing data.
 #' FSelect cannot handle missing data.
-#' @return FSelect saves the details of the final lda model as an object in the
-#' working directory.
-#' 
-#' FSelect returns list containing at least the following components:
+#' @return FSelect returns list containing at least the following components:
 #' 
 #' \item{Selected}{ An ordered list indicating which columns were selected.  }
 #' \item{F.Selected}{ An ordered list containing the F statistics for each
 #' column indicated in Selected.  } \item{PrF}{ An ordered list containing the
 #' p values for each column indicated in Selected. } \item{PrNotes}{ A string
 #' indicating which method was used to control for multiple comparisons }
+#' \item{model}{ An lm object with the final model results.  }
 #' @seealso \code{\link{completeData}}
 #' @references Costanza M, Afifi A (1979). Comparison of Stopping Rules in
 #' Forward Stepwise Discriminant Analysis. Journal of the American Statistical
@@ -38,14 +36,14 @@
 #' 
 #' data(Nuclei)
 #' data(Groups)
-#' NPC<-floor(ncol(Nuclei)/5)
+#' npcs<-floor(ncol(Nuclei)/5)
 #' 
-#' DAT.comp<-completeData(Nuclei, n_pcs=NPC) 
-#' Groups.use<-c(1,2) 
-#' use.DAT<-which(Groups==Groups.use[1]|Groups==Groups.use[2])
+#' dat.comp <- completeData(data = Nuclei, n_pcs = npcs) 
+#' groups.use <- c(1,2) 
+#' use.dat <- which(Groups==groups.use[1]|Groups==groups.use[2])
 #' 
-#' DAT.use<-Nuclei[use.DAT,]
-#' GR.use<-Groups[use.DAT]
+#' dat.use <- Nuclei[use.dat,]
+#' GR.use <- Groups[use.dat]
 #' 
 #' #not run
 #' #FSelect(DAT.use,GR.use,3)

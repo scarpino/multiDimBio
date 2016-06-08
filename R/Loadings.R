@@ -12,7 +12,7 @@
 #' @param method An optional list indicating whether the results for a
 #' principle component analysis, 'PCA', or linear discriminant analysis, 'LDA'
 #' should be performed.
-#' @return Outputs a .pdf file for each test listed in method.
+#' @return Outputs a list with values and plots for each test listed in method.
 #' @seealso \code{\link{pca}}, \code{\link{lda}}
 #' @examples
 #' 

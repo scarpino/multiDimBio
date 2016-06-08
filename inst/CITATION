@@ -8,7 +8,7 @@ citEntry(entry = "unpublished",
            as.person("David Crews")
            ),
          note  = "R Package",
-         url   = "http://cran.r-project.org/web/packages/multiDimBio/index.html",
+         url   = "https://cran.r-project.org/package=multiDimBio",
 	 textVersion = paste(
 		"Scarpino SV, R Gillette, D Crews. (2013) multiDimBio: An R Package for the Design, Analysis, and Visualization of Systems Biology Experiments (R package), http://cran.r-project.org/web/packages/multiDimBio/index.html")
          )

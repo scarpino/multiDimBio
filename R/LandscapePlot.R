@@ -19,7 +19,8 @@
 #' according to the columns they represent.  The defaul is FALSE.
 #' @param control An optional numeric vector setting the control parameters for
 #' persp.  control[1] = theta, control[2] = r, control[3] = phi
-#' @return Outputs a .jpeg (or.pdf if PDF=TRUE) file for each column in data.
+#' @return a list of plots stored as grid plots (or.pdf if PDF=TRUE) file for
+#' each column in data.
 #' @examples
 #' 
 #' data(Nuclei) 

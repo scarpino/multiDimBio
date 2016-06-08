@@ -3,19 +3,19 @@
 \alias{multiDimBio}
 \docType{package}
 
-\title{A Package for the Design, Analysis, and Visualization of Systems Biology Experiments
+\title{Multivariate Analysis and Visualization for Biological Data
 }
 
 \description{
-multiDimBio is a package designed to support a systems biology research program from inception through publication.  It focuses on dimension reduction approaches to detect patterns in complex, multivariate experimental data and places an emphasis on informative visualizations.  The goal for this project is to create a package that will evolve over time, thereby remaining relevant and reflective of current methods and techniques.  As a result, we encourage suggested additions to the package, both methodological and graphical.
+Code to support a systems biology research program from inception through publication.  The methods focus on dimension reduction approaches to detect patterns in complex, multivariate experimental data and places an emphasis on informative visualizations.  The goal for this project is to create a package that will evolve over time, thereby remaining relevant and reflective of current methods and techniques.  As a result, we encourage suggested additions to the package, both methodological and graphical.
 }
 
 \details{
 \tabular{ll}{
 Package: \tab multiDimBio\cr
 Type: \tab Package\cr
-Version: \tab 0.4.2\cr
-Date: \tab 2016-06-06\cr
+Version: \tab 1.0.1\cr
+Date: \tab 2016-06-08\cr
 License: \tab GPL 3.0\cr
 LazyLoad: \tab yes\cr
 }

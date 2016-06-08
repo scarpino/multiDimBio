@@ -16,9 +16,10 @@
 #' missing a trait score before that trait is removed from data.  A value of 1
 #' will not remove any traits and 0 will remove them all.
 #' @param show.test a logical statement indicating whether a diagnostic plot of
-#' the data imputation should be plotted.
-#' @return Returns an object of class matrix with missing values imputed using
-#' a probabilistic principle component framework.
+#' the data imputation should be returned.
+#' @return Returns a list with two entries.  \item{complete_dat}{ an object of
+#' class matrix with missing values imputed using a probabilistic principle
+#' component framework. } \item{plots}{ a list of plots stored as grid plots. }
 #' @seealso \code{\link[pcaMethods:pcaMethods]{pcaMethods}}, \code{\link{pca}}
 #' @references Roweis S (1997). EM algorithms for PCA and sensible PCA. Neural
 #' Inf. Proc. Syst., 10, 626 - 632.
@@ -33,15 +34,15 @@
 #' @examples
 #' 
 #' data(Nuclei)
-#' npc<-floor(ncol(Nuclei)/5)
+#' npcs<-floor(ncol(Nuclei)/5)
 #' 
 #' length(which(is.na(Nuclei))==TRUE)
 #' 
-#' dat.comp<-completeData(Nuclei, n_pcs=npc)
+#' dat.comp<-completeData(data = Nuclei, n_pcs = npcs)
 #' 
 #' length(which(is.na(dat.comp))==TRUE)
 #' 
-#' @export Completedata
+#' @export completeData
 completeData <- function(data, n_pcs, cut.trait = 0.5, cut.ind = 0.5, 
     show.test = TRUE) {
     

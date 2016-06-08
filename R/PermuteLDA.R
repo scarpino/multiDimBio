@@ -28,7 +28,7 @@
 #' @param NPerm The number of permutations used to generate the null
 #' distribution.  The default is 100.
 #' @param Missing.Data The method used to handle missing data.  The default,
-#' 'Complete' will use completeData to impute missing data, setting
+#' 'Complete' will use CompleteData to impute missing data, setting
 #' Missing.Data='Remove' will remove all individuals with missing data.
 #' FSelect cannot handle missing data.
 #' @return Returns a data frame with four columns and the number of groups

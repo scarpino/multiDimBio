@@ -52,5 +52,5 @@ Returns a vector of simulated p values.  The list contains:
 	nperms <- 2
 	nsims <- 2
 	nbins <- 3
-	getP(ndads = ndads, mm = mm, vv = vv, tau2 = tau2, nperms = nperms, nsims = nsims, nbins = nbins)
+	getP(ndads, mm, vv, tau2, nperms, nsims, nbins)
 }

@@ -19,10 +19,10 @@ simPower(ndads,mm,vv,tau2,nperms,nbins)
 a (non-empty) numeric value indicating the number of dads.
 }
   \item{mm}{
-a (non-empty) numeric value indicating the mean number of offspring per dad per bin (normal dist).
+a (non-empty) numeric value indicating the mean number of offspring per dad per bin (normal dist). mm must be less than vv. 
 }
   \item{vv}{
-a (non-empty) numeric value indicating the variance in offspring per dad per bin (normal dist).
+a (non-empty) numeric value indicating the variance in offspring per dad per bin (normal dist). vv must be great than mm. 
 }
   \item{tau2}{
 a (non-empty) numeric value indicating the dad effect (narrow-sense heritability ~ tau2/(tau2+(pi/sqrt(3))^2)).

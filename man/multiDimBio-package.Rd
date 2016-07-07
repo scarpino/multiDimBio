@@ -14,8 +14,8 @@ Code to support a systems biology research program from inception through public
 \tabular{ll}{
 Package: \tab multiDimBio\cr
 Type: \tab Package\cr
-Version: \tab 1.0.1\cr
-Date: \tab 2016-06-08\cr
+Version: \tab 1.0.2\cr
+Date: \tab 2016-07-07\cr
 License: \tab GPL 3.0\cr
 LazyLoad: \tab yes\cr
 }

@@ -22,6 +22,10 @@
 #' 
 #' @export simPower
 simPower <- function(ndads, mm, vv, tau2, nperms, nbins) {
+    if(mm >= vv){
+    		stop("mm must be less than vv.")
+    	}
+    
     mylogit = function(x) log(x/{
         1 - x
     })

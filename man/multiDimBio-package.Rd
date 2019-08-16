@@ -14,8 +14,8 @@ Code to support a systems biology research program from inception through public
 \tabular{ll}{
 Package: \tab multiDimBio\cr
 Type: \tab Package\cr
-Version: \tab 1.1.1\cr
-Date: \tab 2016-12-16\cr
+Version: \tab 1.2.0\cr
+Date: \tab 2019-08-16\cr
 License: \tab GPL 3.0\cr
 LazyLoad: \tab yes\cr
 }
@@ -48,7 +48,8 @@ Habbema J, Hermans J. (1977) Selection of Variables in Discriminant Analysis by 
 
 Jennrich R. (1977) Stepwise discriminant analysis, volume 3. New York Wiley Sons.
 
-Roweis S. (1997) EM algorithms for PCA and sensible PCA. Neural Inf. Proc. Syst.: 10626 - 632.
+Roweis S. (1997) EM algorithms for PCA and sensible PCA. Neural Inf. Proc. Syst.: 10
+626 - 632.
 
 Stacklies W, Redestig H, Scholz M, Walther D, Selbig J. (2007) pcaMethods - a Bioconductor package providing PCA methods for incomplete data. Bioinformatics: 23 1164 - 1167.
 

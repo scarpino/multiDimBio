@@ -70,10 +70,11 @@ h2Estimate <- function(data, nreps = 1000) {
     Dobs = as.numeric(deviance(hm0.real) - deviance(hm1.real))
     if(Dobs < 1e-5){
       pval = 1
-      deviance = Dobs
+      Dobs = 0
       sim = NA 
       trueTau2 <- 0
       h2 <- 0
+      perm1 = NA
     }else{
       ncases <- nrow(data)
       perm1 = replicate(nreps, {

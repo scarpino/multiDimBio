@@ -52,7 +52,7 @@ simPower <- function(ndads, mm, vv, tau2, nperms, nbins) {
     # Compute the likelihood ratio statistic
     hm0 = glm(cbind(swim, set) ~ 1, data = mytable, family = binomial)
     hm1 = glmer(cbind(swim, set) ~ (1 | Dad), data = mytable, 
-        family = binomial, REML = FALSE)
+        family = binomial)
     Dsim = as.numeric(deviance(hm0) - deviance(hm1))
     
     perm1 <- c()

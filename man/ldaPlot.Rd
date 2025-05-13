@@ -34,7 +34,7 @@ Returns a list of ggplot2 plots.
 
 
 \seealso{
-\code{\link{lda}}
+\code{\link[MASS]{lda}}
 }
 
 \examples{

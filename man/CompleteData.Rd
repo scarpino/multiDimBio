@@ -53,7 +53,7 @@ Troyanskaya O, Cantor M, Sherlock G, Brown P, Hastie T, Tibshirani R, Botstein D
 }
 
 \seealso{
-\code{\link[pcaMethods:pcaMethods]{pcaMethods}}, \code{\link{pca}}
+\code{\link[pcaMethods:pcaMethods]{pcaMethods}}, \code{\link[pcaMethods:pcaMethods]{pca}}
 }
 
 \examples{

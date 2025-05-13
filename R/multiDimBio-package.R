@@ -119,7 +119,7 @@ NULL
 #' methodological and graphical.
 #' 
 #' \tabular{ll}{ Package: \tab multiDimBio\cr Type: \tab Package\cr Version:
-#' \tab 1.1.1\cr Date: \tab 2016-12-16\cr License: \tab GPL 3.0\cr LazyLoad:
+#' \tab 1.2.3\cr Date: \tab 2025-05-13\cr License: \tab GPL 3.0\cr LazyLoad:
 #' \tab yes\cr } The datasets are: Nuclei, Groups, CondA, CondB, Scores, and
 #' Dyad
 #' 

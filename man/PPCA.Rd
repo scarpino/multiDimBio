@@ -32,10 +32,11 @@ In PPCA an Expectation Maximization (EM) algorithm is used to fit a Gaussian lat
 }
 
 \value{
-Returns an object of class 'pcaRes.'  See documentation in the package code{\link[pcaMethods:pcaMethods]{ pcaMethods}}
+Returns an object of class 'pcaRes.'  See documentation in the package \code{\link[pcaMethods:pcaMethods]{ pcaMethods}}
 }
 \references{
-Roweis S (1997). EM algorithms for PCA and sensible PCA. Neural Inf. Proc. Syst., 10,626 - 632.
+Roweis S (1997). EM algorithms for PCA and sensible PCA. Neural Inf. Proc. Syst., 10,
+626 - 632.
 
 Stacklies W, Redestig H, Scholz M, Walther D, Selbig J (2007). pcaMethods - a Bioconductor package providing PCA methods for incomplete data. Bioinformatics, 23, 1164 - 1167.
 
@@ -43,7 +44,7 @@ Tippping M, Bishop C (1999). Probabilistic Principle Componenet Analysis. Journa
 }
 
 \seealso{
-\code{\link[pcaMethods:pcaMethods]{pcaMethods}}, \code{\link{pca}}
+\code{\link[pcaMethods:pcaMethods]{pcaMethods}}, \code{\link[pcaMethods:pcaMethods]{pca}}
 }
 
 \examples{

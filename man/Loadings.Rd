@@ -29,10 +29,11 @@ Outputs a list with values and plots for each test listed in method.
 }
 
 \seealso{
-\code{\link{pca}}, \code{\link{lda}}
+\code{\link[pcaMethods:pcaMethods]{pca}}, \code{\link[MASS]{lda}}
 }
 \examples{
 data(Nuclei) 
 data(Groups) 
 Loadings(Nuclei, Groups, method=c("PCA", "LDA"))
 }
+
